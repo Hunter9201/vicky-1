@@ -252,7 +252,7 @@
             justify-content: center;
         }
 
-        /* ===== HERO SECTION (LAW FIRM STYLE) ===== */
+        /* ===== HERO SECTION (OPTIMIZED FOR MOBILE) ===== */
         .hero-section {
             padding: 180px 0 120px;
             background: linear-gradient(rgba(12, 26, 44, 0.9), rgba(12, 26, 44, 0.95)), url('https://images.unsplash.com/photo-1589391886085-8b6b0ac72a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -372,12 +372,16 @@
             will-change: transform;
         }
 
+        /* HERO IMAGE OPTIMIZATION */
         .hero-image {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 1s ease;
             max-width: 100%;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+            background-color: var(--navy-dark); /* Fallback color */
         }
 
         .hero-image-container:hover .hero-image {
@@ -542,7 +546,7 @@
             gap: 15px;
         }
 
-        /* ===== PRINCIPAL COUNSEL SECTION ===== */
+        /* ===== PRINCIPAL COUNSEL SECTION (OPTIMIZED IMAGES) ===== */
         .principal-section {
             padding: var(--section-padding);
             background-color: var(--off-white);
@@ -564,12 +568,16 @@
             will-change: transform;
         }
 
+        /* PRINCIPAL IMAGE OPTIMIZATION */
         .principal-image {
             width: 100%;
             height: auto;
             display: block;
             transition: transform 1s ease;
             max-width: 100%;
+            object-fit: cover;
+            aspect-ratio: 3/4;
+            background-color: var(--navy-dark); /* Fallback color */
         }
 
         .principal-image-container:hover .principal-image {
@@ -652,7 +660,7 @@
             margin-top: 10px;
         }
 
-        /* ===== CREDENTIALS SECTION ===== */
+        /* ===== CREDENTIALS SECTION (OPTIMIZED CERTIFICATES) ===== */
         .credentials-section {
             padding: var(--section-padding);
             background-color: var(--white);
@@ -723,11 +731,16 @@
             box-shadow: var(--shadow-elevated);
         }
 
+        /* CERTIFICATE IMAGE OPTIMIZATION */
         .certificate-image {
             width: 100%;
             height: auto;
             display: block;
             max-width: 100%;
+            object-fit: contain;
+            aspect-ratio: 4/3;
+            background-color: var(--off-white);
+            padding: 15px;
         }
 
         .certificate-caption {
@@ -1027,7 +1040,7 @@
             transform: translateY(0);
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* ===== RESPONSIVE DESIGN WITH IMAGE OPTIMIZATIONS ===== */
         @media (max-width: 1200px) {
             .container {
                 padding: 0 30px;
@@ -1039,6 +1052,11 @@
             
             .section-title {
                 font-size: 2.5rem;
+            }
+            
+            .hero-image,
+            .principal-image {
+                aspect-ratio: 4/5;
             }
         }
 
@@ -1102,17 +1120,14 @@
                 display: none;
             }
             
-            /* Tablet adjustments */
-            .hero-title {
-                font-size: 3rem;
+            /* Image optimizations for tablet */
+            .hero-image,
+            .principal-image {
+                aspect-ratio: 3/4;
             }
             
-            .services-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .principal-stats {
-                grid-template-columns: repeat(3, 1fr);
+            .certificate-image {
+                aspect-ratio: 3/2;
             }
         }
 
@@ -1138,19 +1153,30 @@
                 margin-right: 8px;
             }
             
+            /* HERO SECTION MOBILE OPTIMIZATIONS */
             .hero-section {
                 padding: 140px 0 80px;
                 background-attachment: scroll;
+                background-position: center center;
+                background-size: cover;
             }
             
             .hero-title {
                 font-size: 2.2rem;
                 line-height: 1.2;
+                text-align: center;
             }
             
             .hero-subtitle {
                 font-size: 1.1rem;
                 line-height: 1.5;
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-pretitle {
+                justify-content: center;
+                font-size: 0.9rem;
             }
             
             .hero-badge {
@@ -1160,31 +1186,40 @@
                 max-width: calc(100% - 40px);
             }
             
+            .hero-image {
+                aspect-ratio: 4/5;
+                object-position: center top;
+            }
+            
+            /* SERVICES MOBILE */
             .services-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
             
             .service-card {
-                margin: 0 10px;
+                margin: 0 5px;
             }
             
             .service-content {
                 padding: 25px;
             }
             
+            /* PRINCIPAL SECTION MOBILE */
             .principal-container {
                 gap: 40px;
             }
             
             .principal-title {
                 font-size: 1.8rem;
+                text-align: center;
             }
             
             .principal-quote {
                 font-size: 1.1rem;
                 padding-left: 20px;
                 margin-left: 0;
+                text-align: left;
             }
             
             .principal-badge {
@@ -1195,6 +1230,12 @@
                 max-width: 100%;
             }
             
+            .principal-image {
+                aspect-ratio: 4/5;
+                object-position: center top;
+            }
+            
+            /* CREDENTIALS MOBILE */
             .credentials-container {
                 gap: 40px;
             }
@@ -1209,6 +1250,12 @@
                 gap: 20px;
             }
             
+            .certificate-image {
+                aspect-ratio: 4/3;
+                padding: 10px;
+            }
+            
+            /* TESTIMONIALS MOBILE */
             .testimonial-card {
                 padding: 30px 25px;
                 margin: 0 10px;
@@ -1217,8 +1264,10 @@
             .testimonial-text {
                 font-size: 1.1rem;
                 line-height: 1.5;
+                text-align: center;
             }
             
+            /* CONTACT MOBILE */
             .contact-container {
                 gap: 40px;
             }
@@ -1229,8 +1278,10 @@
             
             .form-title {
                 font-size: 1.5rem;
+                text-align: center;
             }
             
+            /* FOOTER MOBILE */
             .footer-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -1238,12 +1289,26 @@
             
             .footer-column {
                 margin-bottom: 30px;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .footer-links {
+                text-align: center;
+            }
+            
+            .footer-links a {
+                justify-content: center;
             }
             
             .main-footer {
                 padding: 60px 0 30px;
             }
             
+            /* BUTTONS MOBILE */
             .btn-primary, .btn-secondary {
                 padding: 14px 24px;
                 font-size: 0.95rem;
@@ -1257,15 +1322,23 @@
                 margin-top: 40px;
             }
             
+            /* SECTION HEADERS MOBILE */
             .section-title {
                 font-size: 1.8rem;
+                text-align: center;
             }
             
             .section-subtitle {
                 font-size: 1.05rem;
                 line-height: 1.5;
+                text-align: center;
             }
             
+            .section-pretitle {
+                text-align: center;
+            }
+            
+            /* STATS MOBILE */
             .principal-stats {
                 grid-template-columns: 1fr;
                 gap: 20px;
@@ -1275,20 +1348,28 @@
                 font-size: 2rem;
             }
             
+            .stat-label {
+                font-size: 0.85rem;
+            }
+            
+            /* FORM INPUTS MOBILE */
             .contact-form input,
             .contact-form select,
             .contact-form textarea {
                 padding: 16px;
+                font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
+            /* EXTRA SMALL DEVICE OPTIMIZATIONS */
             .hero-title {
                 font-size: 1.8rem;
+                line-height: 1.1;
             }
             
             .hero-pretitle {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
                 letter-spacing: 2px;
             }
             
@@ -1298,6 +1379,7 @@
             
             .service-title {
                 font-size: 1.3rem;
+                text-align: center;
             }
             
             .credential-title {
@@ -1309,16 +1391,76 @@
                 background: rgba(197, 160, 71, 0.05);
                 border-radius: var(--border-radius-sm);
             }
+            
+            .hero-image,
+            .principal-image {
+                aspect-ratio: 3/4;
+            }
+            
+            .certificate-image {
+                aspect-ratio: 1/1;
+                padding: 5px;
+            }
         }
 
         @media (max-width: 576px) {
             .hero-title {
-                font-size: 2.3rem;
+                font-size: 2rem;
             }
             
             .section-title {
                 font-size: 1.8rem;
             }
+        }
+
+        /* IMAGE LOADING OPTIMIZATIONS */
+        .hero-image,
+        .principal-image,
+        .certificate-image {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .hero-image.loading,
+        .principal-image.loading,
+        .certificate-image.loading {
+            opacity: 0;
+        }
+
+        /* FALLBACK FOR IMAGES THAT DON'T LOAD */
+        .hero-image-container::after,
+        .principal-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 100%);
+            z-index: 0;
+            display: none;
+        }
+
+        .hero-image-container.fallback::after,
+        .principal-image-container.fallback::after {
+            display: block;
+        }
+
+        /* IMAGE CONTAINER FALLBACK CONTENT */
+        .image-fallback-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--gold-secondary);
+            text-align: center;
+            z-index: 1;
+            display: none;
+        }
+
+        .hero-image-container.fallback .image-fallback-content,
+        .principal-image-container.fallback .image-fallback-content {
+            display: block;
         }
     </style>
 </head>
@@ -1376,8 +1518,19 @@
             </div>
             
             <div class="hero-image-container">
-                <img src="https://i.postimg.cc/F1fM6bqM/Whats-App-Image-2025-12-30-at-09-53-37.jpg" 
-                     alt="Principal Counsel Anyango Victoria" class="hero-image">
+                <!-- Optimized image with fallback -->
+                <img 
+                    src="https://i.postimg.cc/F1fM6bqM/Whats-App-Image-2025-12-30-at-09-53-37.jpg" 
+                    alt="Principal Counsel Anyango Victoria" 
+                    class="hero-image"
+                    loading="lazy"
+                    onerror="this.onerror=null; this.parentElement.classList.add('fallback');"
+                >
+                <div class="image-fallback-content">
+                    <i class="fas fa-user-tie fa-3x"></i>
+                    <h3 style="margin-top: 15px; color: var(--gold-secondary);">Anyango Victoria</h3>
+                    <p style="color: var(--gray-light); font-size: 0.9rem;">Principal Counsel</p>
+                </div>
                 <div class="hero-badge">
                     <div class="hero-badge-title">Anyango Victoria</div>
                     <div class="hero-badge-text">Principal Counsel & Founder</div>
@@ -1472,8 +1625,19 @@
     <section class="principal-section" id="principal">
         <div class="container principal-container">
             <div class="principal-image-container">
-                <img src="https://i.postimg.cc/F1fM6bqM/Whats-App-Image-2025-12-30-at-09-53-37.jpg" 
-                     alt="Principal Counsel Anyango Victoria" class="principal-image">
+                <!-- Optimized image with fallback -->
+                <img 
+                    src="https://i.postimg.cc/F1fM6bqM/Whats-App-Image-2025-12-30-at-09-53-37.jpg" 
+                    alt="Principal Counsel Anyango Victoria" 
+                    class="principal-image"
+                    loading="lazy"
+                    onerror="this.onerror=null; this.parentElement.classList.add('fallback');"
+                >
+                <div class="image-fallback-content">
+                    <i class="fas fa-user-tie fa-3x"></i>
+                    <h3 style="margin-top: 15px; color: var(--gold-secondary);">Anyango Victoria</h3>
+                    <p style="color: var(--gray-light); font-size: 0.9rem;">Principal Counsel</p>
+                </div>
                 <div class="principal-badge">
                     <div class="principal-badge-title">Principal Counsel</div>
                     <p class="hero-badge-text">Anyango Victoria leads the consultancy with extensive 
@@ -1556,8 +1720,13 @@
             
             <div class="certificates-display">
                 <div class="certificate-frame fade-in">
-                    <img src="https://i.postimg.cc/WtDBymKx/Whats-App-Image-2025-12-30-at-10-02-00.jpg" 
-                         alt="LLB Certificate" class="certificate-image">
+                    <!-- Optimized certificate image -->
+                    <img 
+                        src="https://i.postimg.cc/WtDBymKx/Whats-App-Image-2025-12-30-at-10-02-00.jpg" 
+                        alt="LLB Certificate" 
+                        class="certificate-image"
+                        loading="lazy"
+                    >
                     <div class="certificate-caption">
                         <h4>Bachelor of Laws (LLB)</h4>
                         <p>Uganda Christian University</p>
@@ -1565,8 +1734,13 @@
                 </div>
                 
                 <div class="certificate-frame fade-in">
-                    <img src="https://i.postimg.cc/0r6T4G3L/Whats-App-Image-2025-12-30-at-10-04-05.jpg" 
-                         alt="Post Graduate Diploma" class="certificate-image">
+                    <!-- Optimized certificate image -->
+                    <img 
+                        src="https://i.postimg.cc/0r6T4G3L/Whats-App-Image-2025-12-30-at-10-04-05.jpg" 
+                        alt="Post Graduate Diploma" 
+                        class="certificate-image"
+                        loading="lazy"
+                    >
                     <div class="certificate-caption">
                         <h4>Post Graduate Diploma</h4>
                         <p>Law Development Center</p>
@@ -1977,6 +2151,20 @@
                     fadeElements.forEach(el => {
                         el.style.transitionDelay = '0.1s';
                     });
+                    
+                    // Force images to load with mobile-friendly dimensions
+                    const heroImages = document.querySelectorAll('.hero-image, .principal-image');
+                    heroImages.forEach(img => {
+                        // Ensure images are loaded in mobile-optimized way
+                        if (img.complete) {
+                            img.classList.remove('loading');
+                        } else {
+                            img.classList.add('loading');
+                            img.onload = function() {
+                                this.classList.remove('loading');
+                            };
+                        }
+                    });
                 }
             }
             
@@ -2014,6 +2202,30 @@
             if (window.scrollY > 50) {
                 mainHeader.classList.add('scrolled');
             }
+            
+            // Image loading optimization
+            function optimizeImages() {
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    // Add loading optimization
+                    img.loading = 'lazy';
+                    
+                    // Add error handling
+                    img.onerror = function() {
+                        console.warn('Image failed to load:', this.src);
+                        // Don't break the layout if image fails
+                        this.style.opacity = '0';
+                    };
+                    
+                    // Add load event to remove loading class
+                    img.addEventListener('load', function() {
+                        this.classList.remove('loading');
+                    });
+                });
+            }
+            
+            // Run image optimization
+            optimizeImages();
         });
     </script>
 </body>
